@@ -1,0 +1,37 @@
+.contact-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  background: #111111;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.form-label {
+  grid-column: span 2;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.form-input,
+.form-textarea {
+  padding: 10px;
+  background: #0f0f0f;
+  color: #e6e6e6;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 6px;
+}
+
+.form-textarea {
+  grid-column: span 2;
+}
+
+.btn-secondary {
+  grid-column: span 2;
+  background: transparent;
+  color: #b71c1c;
+  border: 1px solid #b71c1c;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 6px;
+}
