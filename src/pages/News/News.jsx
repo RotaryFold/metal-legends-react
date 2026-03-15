@@ -10,7 +10,7 @@ const newsItems = [
       "Metallica will broadcast a one-time live performance from their private studio on March 22nd, free for all fans worldwide.",
     date: "2025-03-10",
     category: "News",
-    url: "https://www.blabbermouth.net",
+    url: "https://www.blabbermouth.net/news/metallica-frontman-james-hetfield-thinks-early-metallica-songs-were-too-long/",
   },
   {
     id: "2",
@@ -19,7 +19,7 @@ const newsItems = [
       "The British legends have sold out 42 consecutive arena shows across Europe, smashing their own 2019 record.",
     date: "2025-03-05",
     category: "Tours",
-    url: "https://www.blabbermouth.net",
+    url: "https://www.blabbermouth.net/news/iron-maiden-announces-2025-run-of-the-future-past-shows/",
   },
   {
     id: "3",
@@ -28,7 +28,7 @@ const newsItems = [
       "Rob Halford confirms the band is already writing new material: 'The ideas are flowing and they are brutal.'",
     date: "2025-02-28",
     category: "Albums",
-    url: "https://www.blabbermouth.net",
+    url: "https://www.blabbermouth.net/news/rob-halford-says-judas-priest-is-already-thinking-about-follow-up-to-invincible-shield/",
   },
   {
     id: "4",
@@ -37,7 +37,7 @@ const newsItems = [
       "In a recent interview Kerry King did not rule out a special reunion set under the Slayer banner for their 45th anniversary.",
     date: "2025-02-20",
     category: "Rumors",
-    url: "https://www.blabbermouth.net",
+    url: "https://www.blabbermouth.net/news/kerry-king-on-slayer-reunion-it-will-not-lead-to-recording-new-music/",
   },
   {
     id: "5",
@@ -46,7 +46,7 @@ const newsItems = [
       "From black metal newcomers to veteran thrashers, here are the ten releases that dominated the first quarter of 2025.",
     date: "2025-02-15",
     category: "Reviews",
-    url: "https://www.blabbermouth.net",
+    url: "https://www.blabbermouth.net/news/metallicas-72-seasons-is-no-1-metal-album-of-2023/",
   },
   {
     id: "6",
@@ -55,7 +55,7 @@ const newsItems = [
       "Metallica, Bring Me the Horizon and Ghost headline this year's edition at Donington Park. Over 100 bands confirmed.",
     date: "2025-01-30",
     category: "Festivals",
-    url: "https://www.blabbermouth.net",
+    url: "https://www.blabbermouth.net/news/download-2025-announces-first-wave-of-bands/",
   },
 ];
 

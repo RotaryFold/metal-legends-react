@@ -140,7 +140,7 @@ The `/news` page links to a live heavy metal RSS feed from [Blabbermouth](https:
 
 ## 👤 Author
 
-**Joel** — [@RotaryFold](https://github.com/RotaryFold)
+**Joel** — [@RotaryFold](https://github.com/RotaryFold/metal-legends-react)
 
 ---
 

@@ -47,7 +47,7 @@ function Footer() {
           <h4 className="footer-heading">Resources</h4>
           <div className="footer-resources">
             <a
-              href="https://github.com/RotaryFold/react-metal-legends"
+              href="https://github.com/RotaryFold/metal-legends-react"
               target="_blank"
               rel="noreferrer"
               className="footer-link"
