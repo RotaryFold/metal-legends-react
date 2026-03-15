@@ -5,7 +5,7 @@
  */
 import "./News.css";
 
-const RSS_URL = "https://www.blabbermouth.net/news";
+const RSS_URL = "https://blabbermouth.net/feed.rss";
 
 const newsItems = [
   {
@@ -74,7 +74,7 @@ function News() {
           <span className="rss-label">📡 Live RSS Feed</span>
           <p className="rss-description">
             Stay up to date with the latest heavy metal news from around the
-            world. Visit our live news source powerd by Blabbermouth:
+            world. View our live RSS feed source powerd by Blabbermouth:
           </p>
           <a
             href={RSS_URL}
@@ -82,7 +82,7 @@ function News() {
             rel="noreferrer"
             className="rss-link"
           >
-            🔗 metallegends.rss / Visit Blabbermouth News
+            🔗 metallegends.rss / Open Blabbermouth RSS Feed
           </a>
         </div>
 
