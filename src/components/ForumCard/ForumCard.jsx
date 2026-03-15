@@ -1,7 +1,3 @@
-/**
- * NOTA PARA EL ESTUDIO DE JOEL:
- * Componente visual que recibe los datos y las funciones para editar/borrar.
- */
 import "./ForumCard.css";
 
 function ForumCard({ post, onEdit, onDelete }) {

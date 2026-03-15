@@ -1,7 +1,3 @@
-/**
- * NOTA PARA EL ESTUDIO DE JOEL:
- * Aquí controlo las rutas. El Header y Footer se quedan fijos en toda la web.
- */
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
 import Header from "./components/Header/Header";

@@ -1,7 +1,3 @@
-/**
- * NOTA PARA EL ESTUDIO DE JOEL:
- * Recibe el género por props y filtra la lista de bandas que se muestran.
- */
 import "./FeaturedBands.css";
 import { bands } from "../../data/band";
 
