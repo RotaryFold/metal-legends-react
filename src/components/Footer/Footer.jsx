@@ -68,7 +68,7 @@ function Footer() {
               rel="noreferrer"
               className="footer-link"
             >
-              📡 Genuine RSS Feed
+              📡 RSS Feed
             </a>
           </div>
 

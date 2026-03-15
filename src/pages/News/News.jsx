@@ -71,9 +71,9 @@ function News() {
         <h2 className="section-title">Metal News</h2>
 
         <div className="rss-banner">
-          <span className="rss-label">📡 Local RSS Feed</span>
+          <span className="rss-label">📡 RSS Feed</span>
           <p className="rss-description">
-            Subscribe to our genuine local RSS feed to stay updated with Metal Legends news.
+            Subscribe to our local RSS feed to stay updated with Metal Legends news.
           </p>
           <a
             href={RSS_URL}
@@ -81,7 +81,7 @@ function News() {
             rel="noreferrer"
             className="rss-link"
           >
-            🔗 metallegends.rss / Open Genuine RSS XML
+            🔗 metallegends.rss / Open RSS Feed
           </a>
         </div>
 
