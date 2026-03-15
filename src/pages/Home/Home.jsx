@@ -1,7 +1,3 @@
-/**
- * NOTA PARA EL ESTUDIO DE JOEL:
- * Uso useState para los filtros y paso la info a los hijos por props.
- */
 import { useState } from "react";
 import Hero from "../../components/Hero/Hero";
 import Gallery from "../../components/Gallery/Gallery";

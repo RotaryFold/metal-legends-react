@@ -1,7 +1,3 @@
-/**
- * NOTA PARA EL ESTUDIO DE JOEL:
- * Menú hamburguesa: abro y cierro usando un simple estado true/false.
- */
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./Header.css";

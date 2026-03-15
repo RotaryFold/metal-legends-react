@@ -19,6 +19,7 @@
 ## 📖 Table of Contents
 
 - [About the Project](#about-the-project)
+- [Ampliación (Advanced Features)](#-ampliación-advanced-features)
 - [Pages](#pages)
 - [Third-Party Components](#third-party-components)
 - [Tutorial Links](#tutorial-links)
@@ -36,6 +37,28 @@
 **Metal Legends** is a responsive single-page application built with **React 19** and **Vite 7**. It was created as part of a university web development course. The app celebrates iconic heavy metal bands, lets users manage concert listings, participate in a community forum, and stay updated with the latest metal news through an RSS feed.
 
 The design follows a dark, immersive metal aesthetic using custom CSS with flexbox layouts and media queries for full responsiveness across mobile, tablet and desktop.
+
+---
+
+## 🚀 Ampliación (Advanced Features)
+
+Para superar los requisitos mínimos y aportar valor añadido al proyecto, se han implementado las siguientes funcionalidades avanzadas:
+
+### 1. Persistencia Real con Firebase ☁️
+A diferencia de una aplicación puramente local, el **Metal Forum** está conectado a **Firebase Realtime Database**. 
+- **Full CRUD:** Soporte completo para Crear, Leer, Actualizar y Eliminar posts directamente en la nube.
+- **Sincronización en tiempo real:** Los cambios se reflejan instantáneamente para todos los usuarios sin necesidad de recargar la página gracias al uso de WebSockets (vía el SDK de Firebase).
+
+### 2. Generación de Feed RSS Genuino 📡
+Se ha implementado un archivo `rss.xml` local que sirve como fuente de noticias estandarizada. Esto permite que la aplicación sea compatible con lectores de noticias externos, demostrando habilidades en la estructuración de datos XML para interoperabilidad.
+
+### 3. Geoposicionamiento con Leaflet 🗺️
+En la página de contacto e información, se ha integrado un mapa interactivo utilizando **Leaflet**. No es una simple imagen estática, sino un componente React vivo que permite navegar por localizaciones clave de la escena metalera.
+
+### 4. Estética Premium y UX Adaptativa 🎨
+- **Custom UI:** Diseño basado en una estética de alto contraste "Dark Metal" con tipografías personalizadas (Google Fonts).
+- **Smooth Animations:** Micro-interacciones y transiciones suaves para mejorar la experiencia de usuario.
+- **Responsive Design:** Diseño "Mobile First" garantizando que la aplicación sea 100% funcional en smartphones, tablets y ordenadores.
 
 ---
 

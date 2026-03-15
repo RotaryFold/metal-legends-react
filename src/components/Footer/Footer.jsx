@@ -1,7 +1,3 @@
-/**
- * NOTA PARA EL ESTUDIO DE JOEL:
- * Footer en 3 columnas con Grid, tal como pide la entrega.
- */
 import { NavLink } from "react-router-dom";
 import "./Footer.css";
 

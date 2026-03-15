@@ -1,9 +1,6 @@
-/**
- * NOTA PARA EL ESTUDIO DE JOEL:
- * CRUD completo (crear, editar, borrar). Todo con estado local para practicar.
- */
-import { useMemo, useState } from "react";
-import { initialForumPosts } from "../../data/forum-posts";
+import { useMemo, useState, useEffect } from "react";
+import { ref, onValue, push, set, remove, update } from "firebase/database";
+import { database } from "../../firebase/firebase";
 import ForumCard from "../../components/ForumCard/ForumCard";
 import "./Forum.css";
 
@@ -11,9 +8,31 @@ const CATEGORIES = ["all", "Discussion", "News", "Concerts", "Reviews"];
 
 function Forum() {
   // ── State ────────────────────────────────────────────────────────────────
-  const [posts, setPosts] = useState(initialForumPosts);
+  const [posts, setPosts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchText, setSearchText] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+
+  // ── Firebase Sync ────────────────────────────────────────────────────────
+  useEffect(() => {
+    const postsRef = ref(database, "posts");
+    const unsubscribe = onValue(postsRef, (snapshot) => {
+      const data = snapshot.val();
+      if (data) {
+        // Transform object to array with IDs
+        const postsList = Object.keys(data).map((key) => ({
+          id: key,
+          ...data[key],
+        }));
+        setPosts(postsList.reverse()); // Show newest first
+      } else {
+        setPosts([]);
+      }
+      setIsLoading(false);
+    });
+
+    return () => unsubscribe();
+  }, []);
 
   // Form state
   const [editingId, setEditingId] = useState(null);
@@ -64,30 +83,25 @@ function Forum() {
     }
 
     if (editingId) {
-      // Update
-      setPosts((prev) =>
-        prev.map((post) =>
-          post.id === editingId
-            ? {
-                ...post,
-                title: formTitle.trim(),
-                content: formContent.trim(),
-                author: formAuthor.trim(),
-                category: formCategory,
-              }
-            : post
-        )
-      );
-    } else {
-      // Insert
-      const newPost = {
-        id: Date.now().toString(),
+      // Update in Firebase
+      const postRef = ref(database, `posts/${editingId}`);
+      update(postRef, {
         title: formTitle.trim(),
         content: formContent.trim(),
         author: formAuthor.trim(),
         category: formCategory,
-      };
-      setPosts((prev) => [newPost, ...prev]);
+      }).catch((error) => console.error("Error updating post:", error));
+    } else {
+      // Insert into Firebase
+      const postsRef = ref(database, "posts");
+      const newPostRef = push(postsRef);
+      set(newPostRef, {
+        title: formTitle.trim(),
+        content: formContent.trim(),
+        author: formAuthor.trim(),
+        category: formCategory,
+        createdAt: Date.now(),
+      }).catch((error) => console.error("Error creating post:", error));
     }
 
     resetForm();
@@ -105,7 +119,10 @@ function Forum() {
   };
 
   const handleDelete = (id) => {
-    setPosts((prev) => prev.filter((post) => post.id !== id));
+    if (window.confirm("Are you sure you want to delete this post?")) {
+      const postRef = ref(database, `posts/${id}`);
+      remove(postRef).catch((error) => console.error("Error deleting post:", error));
+    }
   };
 
   // ── Render ───────────────────────────────────────────────────────────────
@@ -221,7 +238,12 @@ function Forum() {
         )}
 
         {/* Post list */}
-        {filteredPosts.length === 0 ? (
+        {isLoading ? (
+          <div className="forum-loading">
+            <div className="spinner"></div>
+            <p>Loading metal wisdom...</p>
+          </div>
+        ) : filteredPosts.length === 0 ? (
           <p className="forum-empty">No posts found. Be the first to post!</p>
         ) : (
           <div className="forum-grid">

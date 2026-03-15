@@ -1,7 +1,3 @@
-/**
- * NOTA PARA EL ESTUDIO DE JOEL:
- * Aquí mapeo un array de objetos para pintar las noticias automáticamente.
- */
 import "./News.css";
 
 const RSS_URL = "/rss.xml";
