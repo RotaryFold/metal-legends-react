@@ -131,7 +131,7 @@ firebase deploy
 
 ## 📡 RSS Feed
 
-The `/news` page links to a live heavy metal RSS feed from [Blabbermouth](https://www.blabbermouth.net/rss.aspx).
+The `/news` page features a **genuine local RSS feed** hosted at [/rss.xml](https://metal-legends.web.app/rss.xml).
 
 > 📸 **RSS Reader Screenshot:**  
 > ![RSS Feed Screenshot](https://raw.githubusercontent.com/RotaryFold/metal-legends-react/main/public/rss-preview.png)

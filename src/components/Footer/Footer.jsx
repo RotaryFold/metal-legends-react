@@ -63,12 +63,12 @@ function Footer() {
               Figma Design Inspiration
             </a>
             <a
-              href="https://blabbermouth.net/feed.rss"
+              href="/rss.xml"
               target="_blank"
               rel="noreferrer"
               className="footer-link"
             >
-              📡 RSS Feed
+              📡 Genuine RSS Feed
             </a>
           </div>
 

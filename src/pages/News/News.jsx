@@ -5,7 +5,7 @@
  */
 import "./News.css";
 
-const RSS_URL = "https://blabbermouth.net/feed.rss";
+const RSS_URL = "/rss.xml";
 
 const newsItems = [
   {
@@ -71,10 +71,9 @@ function News() {
         <h2 className="section-title">Metal News</h2>
 
         <div className="rss-banner">
-          <span className="rss-label">📡 Live RSS Feed</span>
+          <span className="rss-label">📡 Local RSS Feed</span>
           <p className="rss-description">
-            Stay up to date with the latest heavy metal news from around the
-            world. View our live RSS feed source powerd by Blabbermouth:
+            Subscribe to our genuine local RSS feed to stay updated with Metal Legends news.
           </p>
           <a
             href={RSS_URL}
@@ -82,7 +81,7 @@ function News() {
             rel="noreferrer"
             className="rss-link"
           >
-            🔗 metallegends.rss / Open Blabbermouth RSS Feed
+            🔗 metallegends.rss / Open Genuine RSS XML
           </a>
         </div>
 
