@@ -9,6 +9,7 @@ import GalleryPage from "./pages/GalleryPage/GalleryPage";
 import Concerts from "./pages/Concerts/Concerts";
 import Contact from "./pages/Contact/Contact";
 import Forum from "./pages/Forum/Forum";
+import News from "./pages/News/News";
 
 import "./App.css";
 
@@ -24,6 +25,7 @@ function App() {
         <Route path="/concerts" element={<Concerts />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/forum" element={<Forum />} />
+        <Route path="/news" element={<News />} />
         <Route path="*" element={<Navigate to="/home" replace />} />
       </Routes>
       <Footer />

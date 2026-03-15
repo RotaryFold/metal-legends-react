@@ -1,0 +1,127 @@
+.news-section {
+  min-height: 60vh;
+}
+
+/* RSS Banner */
+.rss-banner {
+  background: linear-gradient(135deg, rgba(183, 28, 28, 0.12), rgba(183, 28, 28, 0.04));
+  border: 1px solid rgba(183, 28, 28, 0.3);
+  border-radius: 10px;
+  padding: 20px 24px;
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rss-label {
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--accent);
+}
+
+.rss-description {
+  color: #ccc;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.rss-link {
+  display: inline-block;
+  color: #f44336;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color var(--transition);
+}
+
+.rss-link:hover {
+  color: #ff7961;
+  text-decoration: underline;
+}
+
+/* News Grid */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 18px;
+}
+
+.news-card {
+  background: var(--card-bg);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.news-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.6);
+}
+
+.news-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.news-category {
+  background: var(--accent);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.news-date {
+  font-size: 12px;
+  color: #777;
+}
+
+.news-card-title {
+  font-size: 16px;
+  color: var(--accent);
+  text-shadow: 0 0 8px rgba(183, 28, 28, 0.4);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.news-card-excerpt {
+  font-size: 13px;
+  color: #bbb;
+  line-height: 1.6;
+  flex: 1;
+  margin: 0;
+}
+
+.news-read-more {
+  color: #f44336;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  transition: color var(--transition);
+  align-self: flex-start;
+}
+
+.news-read-more:hover {
+  color: #ff7961;
+}
+
+/* Responsive */
+@media (max-width: 599px) {
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+}

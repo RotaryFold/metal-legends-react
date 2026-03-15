@@ -1,0 +1,89 @@
+.forum-card {
+  background: var(--card-bg);
+  border-radius: 8px;
+  padding: 18px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+  transition: transform var(--transition), box-shadow var(--transition);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.forum-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.6);
+}
+
+.forum-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.forum-category-badge {
+  background: var(--accent);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.forum-author {
+  font-size: 12px;
+  color: #999;
+}
+
+.forum-card-title {
+  font-size: 17px;
+  color: var(--accent);
+  text-shadow: 0 0 8px rgba(183, 28, 28, 0.5);
+  margin: 0;
+}
+
+.forum-card-content {
+  font-size: 14px;
+  color: #ccc;
+  line-height: 1.6;
+  flex: 1;
+}
+
+.forum-card-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.btn-edit {
+  background: transparent;
+  color: #e6e6e6;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background var(--transition);
+}
+
+.btn-edit:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.btn-delete {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid rgba(183, 28, 28, 0.3);
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background var(--transition);
+}
+
+.btn-delete:hover {
+  background: rgba(183, 28, 28, 0.12);
+}

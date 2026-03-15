@@ -1,104 +1,237 @@
-import { useEffect, useMemo, useState } from "react";
-import { ref, get } from "firebase/database";
-import { database } from "../../firebase/firebase";
+import { useMemo, useState } from "react";
+import { initialForumPosts } from "../../data/forum-posts";
+import ForumCard from "../../components/ForumCard/ForumCard";
+import "./Forum.css";
+
+const CATEGORIES = ["all", "Discussion", "News", "Concerts", "Reviews"];
 
 function Forum() {
-  const [posts, setPosts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
+  // ── State ────────────────────────────────────────────────────────────────
+  const [posts, setPosts] = useState(initialForumPosts);
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchText, setSearchText] = useState("");
 
-  useEffect(() => {
-    const load = async () => {
-      try {
-        setIsLoading(true);
+  // Form state
+  const [editingId, setEditingId] = useState(null);
+  const [formTitle, setFormTitle] = useState("");
+  const [formContent, setFormContent] = useState("");
+  const [formAuthor, setFormAuthor] = useState("");
+  const [formCategory, setFormCategory] = useState("Discussion");
+  const [hasError, setHasError] = useState(false);
+  const [isFormOpen, setIsFormOpen] = useState(false);
 
-        const snap = await get(ref(database, "forumPosts"));
-        const val = snap.val();
-
-        if (!val) {
-          setPosts([]);
-          return;
-        }
-
-        const list = Object.entries(val).map(([id, data]) => ({ id, ...data }));
-        setPosts(list);
-      } catch (e) {
-        console.error(e);
-        setPosts([]);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    load();
-  }, []);
-
-  const categories = useMemo(() => {
-    const set = new Set(posts.map((p) => p.category).filter(Boolean));
-    return ["all", ...Array.from(set)];
-  }, [posts]);
-
-  const filtered = useMemo(() => {
-    const q = searchText.trim().toLowerCase();
-    return posts.filter((p) => {
-      const okCat = selectedCategory === "all" || p.category === selectedCategory;
-      const okText =
-        !q ||
-        (p.title || "").toLowerCase().includes(q) ||
-        (p.content || "").toLowerCase().includes(q) ||
-        (p.author || "").toLowerCase().includes(q);
-      return okCat && okText;
+  // ── Filtered list ────────────────────────────────────────────────────────
+  const filteredPosts = useMemo(() => {
+    const query = searchText.trim().toLowerCase();
+    return posts.filter((post) => {
+      const matchesCategory =
+        selectedCategory === "all" || post.category === selectedCategory;
+      const matchesText =
+        !query ||
+        post.title.toLowerCase().includes(query) ||
+        post.content.toLowerCase().includes(query) ||
+        post.author.toLowerCase().includes(query);
+      return matchesCategory && matchesText;
     });
   }, [posts, selectedCategory, searchText]);
 
+  // ── Helpers ──────────────────────────────────────────────────────────────
+  const resetForm = () => {
+    setEditingId(null);
+    setFormTitle("");
+    setFormContent("");
+    setFormAuthor("");
+    setFormCategory("Discussion");
+    setHasError(false);
+    setIsFormOpen(false);
+  };
+
+  const openNewForm = () => {
+    resetForm();
+    setIsFormOpen(true);
+  };
+
+  // ── CRUD handlers ────────────────────────────────────────────────────────
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!formTitle.trim() || !formContent.trim() || !formAuthor.trim()) {
+      setHasError(true);
+      return;
+    }
+
+    if (editingId) {
+      // Update
+      setPosts((prev) =>
+        prev.map((post) =>
+          post.id === editingId
+            ? {
+                ...post,
+                title: formTitle.trim(),
+                content: formContent.trim(),
+                author: formAuthor.trim(),
+                category: formCategory,
+              }
+            : post
+        )
+      );
+    } else {
+      // Insert
+      const newPost = {
+        id: Date.now().toString(),
+        title: formTitle.trim(),
+        content: formContent.trim(),
+        author: formAuthor.trim(),
+        category: formCategory,
+      };
+      setPosts((prev) => [newPost, ...prev]);
+    }
+
+    resetForm();
+  };
+
+  const handleEdit = (post) => {
+    setEditingId(post.id);
+    setFormTitle(post.title);
+    setFormContent(post.content);
+    setFormAuthor(post.author);
+    setFormCategory(post.category);
+    setHasError(false);
+    setIsFormOpen(true);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleDelete = (id) => {
+    setPosts((prev) => prev.filter((post) => post.id !== id));
+  };
+
+  // ── Render ───────────────────────────────────────────────────────────────
   return (
-    <section className="container">
-      <h2 className="section-title">Forum</h2>
+    <section className="forum-section">
+      <div className="container">
+        <h2 className="section-title">Metal Forum</h2>
 
-      <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginBottom: 16 }}>
-        <select
-          className="form-input"
-          value={selectedCategory}
-          onChange={(e) => setSelectedCategory(e.target.value)}
-          style={{ maxWidth: 220 }}
-        >
-          {categories.map((c) => (
-            <option key={c} value={c}>
-              {c}
-            </option>
-          ))}
-        </select>
+        {/* Controls */}
+        <div className="forum-controls">
+          <div className="forum-filters">
+            <select
+              className="form-input"
+              value={selectedCategory}
+              onChange={(e) => setSelectedCategory(e.target.value)}
+              aria-label="Filter by category"
+            >
+              {CATEGORIES.map((cat) => (
+                <option key={cat} value={cat}>
+                  {cat === "all" ? "All categories" : cat}
+                </option>
+              ))}
+            </select>
 
-        <input
-          className="form-input"
-          value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}
-          placeholder="Search..."
-          style={{ flex: "1 1 260px" }}
-        />
-      </div>
+            <input
+              className="form-input forum-search"
+              value={searchText}
+              onChange={(e) => setSearchText(e.target.value)}
+              placeholder="Search by title, content or author…"
+              aria-label="Search forum posts"
+            />
+          </div>
 
-      {isLoading ? (
-        <p>Loading...</p>
-      ) : filtered.length === 0 ? (
-        <p>No posts found (check Firebase forumPosts).</p>
-      ) : (
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 16 }}>
-          {filtered.map((p) => (
-            <article key={p.id} className="band-card" style={{ padding: 16 }}>
-              <h3 className="band-title" style={{ marginBottom: 8 }}>
-                {p.title || "Untitled"}
-              </h3>
-              <p className="band-meta" style={{ marginBottom: 10 }}>
-                <strong>Category:</strong> {p.category || "unknown"} · <strong>Author:</strong> {p.author || "anonymous"}
-              </p>
-              <p>{p.content || "No content"}</p>
-            </article>
-          ))}
+          <button className="btn-primary forum-new-btn" onClick={openNewForm}>
+            + New Post
+          </button>
         </div>
-      )}
+
+        {/* Form (Insert / Update) */}
+        {isFormOpen && (
+          <form className="forum-form" onSubmit={handleSubmit} noValidate>
+            <h3 className="forum-form-title">
+              {editingId ? "Edit Post" : "New Post"}
+            </h3>
+
+            <label className="form-label" htmlFor="form-title">
+              Title
+            </label>
+            <input
+              id="form-title"
+              className="form-input"
+              value={formTitle}
+              onChange={(e) => setFormTitle(e.target.value)}
+              placeholder="Post title"
+            />
+
+            <label className="form-label" htmlFor="form-author">
+              Author
+            </label>
+            <input
+              id="form-author"
+              className="form-input"
+              value={formAuthor}
+              onChange={(e) => setFormAuthor(e.target.value)}
+              placeholder="Your username"
+            />
+
+            <label className="form-label" htmlFor="form-category">
+              Category
+            </label>
+            <select
+              id="form-category"
+              className="form-input"
+              value={formCategory}
+              onChange={(e) => setFormCategory(e.target.value)}
+            >
+              {CATEGORIES.filter((c) => c !== "all").map((cat) => (
+                <option key={cat} value={cat}>
+                  {cat}
+                </option>
+              ))}
+            </select>
+
+            <label className="form-label" htmlFor="form-content">
+              Content
+            </label>
+            <textarea
+              id="form-content"
+              className="form-input form-textarea"
+              value={formContent}
+              onChange={(e) => setFormContent(e.target.value)}
+              placeholder="What's on your mind?"
+              rows={4}
+            />
+
+            {hasError && (
+              <p className="forum-error">Please fill in all fields.</p>
+            )}
+
+            <div className="forum-form-actions">
+              <button className="btn-secondary" type="submit">
+                {editingId ? "Update Post" : "Publish Post"}
+              </button>
+              <button
+                className="btn-cancel"
+                type="button"
+                onClick={resetForm}
+              >
+                Cancel
+              </button>
+            </div>
+          </form>
+        )}
+
+        {/* Post list */}
+        {filteredPosts.length === 0 ? (
+          <p className="forum-empty">No posts found. Be the first to post!</p>
+        ) : (
+          <div className="forum-grid">
+            {filteredPosts.map((post) => (
+              <ForumCard
+                key={post.id}
+                post={post}
+                onEdit={handleEdit}
+                onDelete={handleDelete}
+              />
+            ))}
+          </div>
+        )}
+      </div>
     </section>
   );
 }
