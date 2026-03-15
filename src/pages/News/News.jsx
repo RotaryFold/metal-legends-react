@@ -1,7 +1,6 @@
 /**
  * NOTA PARA EL ESTUDIO DE JOEL:
- * Esta página simula un feed de noticias (RSS). 
- * Muestra cómo mapear un array de objetos para generar una cuadrícula de noticias.
+ * Aquí mapeo un array de objetos para pintar las noticias automáticamente.
  */
 import "./News.css";
 

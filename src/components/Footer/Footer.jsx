@@ -1,7 +1,6 @@
 /**
  * NOTA PARA EL ESTUDIO DE JOEL:
- * El footer utiliza un grid de 3 columnas exigido por la entrega.
- * Incluye enlaces legales, navegación y redes sociales con iconos de FontAwesome.
+ * Footer en 3 columnas con Grid, tal como pide la entrega.
  */
 import { NavLink } from "react-router-dom";
 import "./Footer.css";

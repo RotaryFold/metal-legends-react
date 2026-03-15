@@ -1,3 +1,7 @@
+/**
+ * NOTA PARA EL ESTUDIO DE JOEL:
+ * CRUD completo (crear, editar, borrar). Todo con estado local para practicar.
+ */
 import { useMemo, useState } from "react";
 import { initialForumPosts } from "../../data/forum-posts";
 import ForumCard from "../../components/ForumCard/ForumCard";
