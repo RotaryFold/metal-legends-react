@@ -2,7 +2,7 @@
   <h1>🤘 Metal Legends</h1>
   <p><strong>A fan-made heavy metal web app built with React + Vite</strong></p>
   <p>
-    <a href="https://github.com/RotaryFold/react-metal-legends">
+    <a href="https://github.com/RotaryFold/metal-legends-react">
       <img src="https://img.shields.io/badge/GitHub-Repo-black?style=for-the-badge&logo=github" alt="GitHub" />
     </a>
     <a href="https://react.dev">
@@ -100,8 +100,8 @@ The UI was inspired by Figma community metal / dark-theme designs:
 ### Installation
 
 ```bash
-git clone https://github.com/joelrv21/react-metal-legends.git
-cd react-metal-legends/metal-legends
+git clone https://github.com/RotaryFold/metal-legends-react.git
+cd metal-legends-react/metal-legends
 npm install
 npm run dev
 ```
@@ -118,7 +118,7 @@ npm run build
 
 ## 🔥 Firebase Hosting
 
-> 🔗 **Live App:** *(Add your Firebase Hosting link here after deployment)*
+> 🔗 **Live App:** [https://metal-legends.web.app](https://metal-legends.web.app)
 
 To deploy:
 
@@ -134,7 +134,7 @@ firebase deploy
 The `/news` page links to a live heavy metal RSS feed from [Blabbermouth](https://www.blabbermouth.net/rss.aspx).
 
 > 📸 **RSS Reader Screenshot:**  
-> *(Add a screenshot here showing the RSS reader with items pointing to your Firebase-hosted News page)*
+> ![RSS Feed Screenshot](https://raw.githubusercontent.com/RotaryFold/metal-legends-react/main/public/rss-preview.png)
 
 ---
 

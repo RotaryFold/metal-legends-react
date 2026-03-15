@@ -1,3 +1,8 @@
+/**
+ * NOTA PARA EL ESTUDIO DE JOEL:
+ * El footer utiliza un grid de 3 columnas exigido por la entrega.
+ * Incluye enlaces legales, navegación y redes sociales con iconos de FontAwesome.
+ */
 import { NavLink } from "react-router-dom";
 import "./Footer.css";
 
@@ -8,7 +13,6 @@ function Footer() {
     <footer className="main-footer">
       <div className="container footer-inner">
 
-        {/* Column 1 – Brand & Copyright */}
         <div className="footer-col">
           <p className="footer-brand">🤘 Metal Legends</p>
           <p className="footer-copy">
@@ -22,13 +26,10 @@ function Footer() {
           <p className="footer-legal-text">
             Metal Legends is an independent fan project and is not affiliated
             with any artist or record label. All trademarks belong to their
-            respective owners. Our Cookie Policy explains how we use cookies to
-            improve your browsing experience. By continuing to use this site you
-            accept our Terms of Sale.
+            respective owners.
           </p>
         </div>
 
-        {/* Column 2 – App sections */}
         <div className="footer-col">
           <h4 className="footer-heading">Explore</h4>
           <nav className="footer-nav" aria-label="Footer navigation">
@@ -42,7 +43,6 @@ function Footer() {
           </nav>
         </div>
 
-        {/* Column 3 – Links & Socials */}
         <div className="footer-col">
           <h4 className="footer-heading">Resources</h4>
           <div className="footer-resources">
@@ -63,60 +63,30 @@ function Footer() {
               Figma Design Inspiration
             </a>
             <a
-              href="https://www.blabbermouth.net/rss.aspx"
+              href="https://www.blabbermouth.net/news"
               target="_blank"
               rel="noreferrer"
               className="footer-link"
             >
-              📡 RSS Feed
+              📡 News Source
             </a>
           </div>
 
           <h4 className="footer-heading" style={{ marginTop: "16px" }}>Follow Us</h4>
           <div className="footer-socials">
-            <a
-              className="footer-icon"
-              href="https://github.com/"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="GitHub"
-            >
+            <a className="footer-icon" href="https://github.com/RotaryFold" target="_blank" rel="noreferrer" aria-label="GitHub">
               <i className="fa-brands fa-github"></i>
             </a>
-            <a
-              className="footer-icon"
-              href="https://instagram.com/"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Instagram"
-            >
+            <a className="footer-icon" href="https://instagram.com/" target="_blank" rel="noreferrer" aria-label="Instagram">
               <i className="fa-brands fa-instagram"></i>
             </a>
-            <a
-              className="footer-icon"
-              href="https://x.com/"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="X / Twitter"
-            >
+            <a className="footer-icon" href="https://x.com/" target="_blank" rel="noreferrer" aria-label="X / Twitter">
               <i className="fa-brands fa-x-twitter"></i>
             </a>
-            <a
-              className="footer-icon"
-              href="https://youtube.com/"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="YouTube"
-            >
+            <a className="footer-icon" href="https://youtube.com/" target="_blank" rel="noreferrer" aria-label="YouTube">
               <i className="fa-brands fa-youtube"></i>
             </a>
-            <a
-              className="footer-icon"
-              href="https://spotify.com/"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Spotify"
-            >
+            <a className="footer-icon" href="https://spotify.com/" target="_blank" rel="noreferrer" aria-label="Spotify">
               <i className="fa-brands fa-spotify"></i>
             </a>
           </div>
