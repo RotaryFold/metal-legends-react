@@ -10,6 +10,7 @@ import Concerts from "./pages/Concerts/Concerts";
 import Contact from "./pages/Contact/Contact";
 import Forum from "./pages/Forum/Forum";
 import News from "./pages/News/News";
+import ImportExport from "./pages/ImportExport/ImportExport";
 
 import "./App.css";
 
@@ -26,6 +27,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/forum" element={<Forum />} />
         <Route path="/news" element={<News />} />
+        <Route path="/import-export" element={<ImportExport />} />
         <Route path="*" element={<Navigate to="/home" replace />} />
       </Routes>
       <Footer />

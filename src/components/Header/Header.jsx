@@ -10,6 +10,7 @@ const navItems = [
   { to: "/forum", label: "Forum" },
   { to: "/news", label: "News" },
   { to: "/contact", label: "Contact" },
+  { to: "/import-export", label: "Import/Export" },
 ];
 
 function Header() {
