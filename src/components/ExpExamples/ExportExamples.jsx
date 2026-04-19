@@ -14,12 +14,12 @@ function ExportExamples() {
       .finally(() => setLoading(false));
   }, []);
 
-  // Generar JSON para exportar
+
   const buildJson = () => {
     return bands.map(({ firebaseKey, ...rest }) => rest);
   };
 
-  // Generar XML para exportar
+
   const buildXml = () => {
     let xml = `<?xml version="1.0" encoding="UTF-8"?>\n<bands>\n`;
     bands.forEach((band) => {
@@ -36,7 +36,7 @@ function ExportExamples() {
     return xml;
   };
 
-  // Generar CSV para exportar
+
   const buildCsv = () => {
     const header = "id,name,genre,year,image,description";
     const rows = bands.map(
@@ -57,7 +57,7 @@ function ExportExamples() {
 
   return (
     <div className="export-section">
-      <h3 className="export-title">📤 Export Data</h3>
+      <h3 className="export-title">Export Data</h3>
       <p className="export-info">
         Export <strong>{bands.length}</strong> bands from Firebase in any format:
       </p>

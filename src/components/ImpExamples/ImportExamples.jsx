@@ -31,11 +31,11 @@ export default function ImportExamples() {
     setSuccess("");
 
     try {
-      // Convertir los datos importados al formato de bandas
+
       let bandsArray = [];
 
       if (Array.isArray(internalJson.data)) {
-        // CSV o JSON array
+
         bandsArray = internalJson.data.map((item) => ({
           id: item.id || item.name?.toLowerCase().replace(/\s+/g, "-") || "",
           name: item.name || "",
@@ -45,7 +45,7 @@ export default function ImportExamples() {
           description: item.description || "",
         }));
       } else if (internalJson.data.bands?.band) {
-        // XML format: { bands: { band: [...] } }
+
         const xmlBands = Array.isArray(internalJson.data.bands.band)
           ? internalJson.data.bands.band
           : [internalJson.data.bands.band];
@@ -62,7 +62,7 @@ export default function ImportExamples() {
       }
 
       await setAllBands(bandsArray);
-      setSuccess(`✅ ${bandsArray.length} bands saved to Firebase!`);
+      setSuccess(`${bandsArray.length} bands saved to Firebase!`);
     } catch (err) {
       setError("Error saving to Firebase: " + err.message);
     } finally {
@@ -72,7 +72,7 @@ export default function ImportExamples() {
 
   return (
     <div className="import-section">
-      <h3 className="import-title">📥 Import Data</h3>
+      <h3 className="import-title">Import Data</h3>
       <p className="import-info">
         Import bands from a JSON, XML or CSV file and save them to Firebase.
       </p>

@@ -20,6 +20,8 @@
 
 - [About the Project](#about-the-project)
 - [Pages](#pages)
+- [Import / Export Data](#-import--export-data)
+- [Firebase Services Architecture](#-firebase-services-architecture)
 - [Third-Party Components](#third-party-components)
 - [Tutorial Links](#tutorial-links)
 - [Design Inspiration](#design-inspiration)
@@ -44,16 +46,72 @@ The design follows a dark, immersive metal aesthetic using custom CSS with flexb
 | Route | Description |
 |---|---|
 | `/` `/home` | Home page — Hero banner, genre filter (state + props) and photo gallery |
-| `/bands` | Grid of famous metal bands with modal detail view |
+| `/bands` | Grid of famous metal bands with modal detail view (data from Firebase) |
 | `/concerts` | Full CRUD: add, edit, delete and list upcoming concerts |
 | `/gallery` | Photo mosaic gallery of legendary metal performances |
 | `/forum` | Community forum with full CRUD + filter by category and text search |
 | `/news` | Metal news feed linked to a live RSS source |
 | `/contact` | Contact form + interactive Leaflet map |
+| `/import-export` | Import/Export bands data in JSON, XML and CSV formats |
 
 ### Home Page Description
 
 The home page greets the user with a full-width hero banner showcasing a live concert photograph, a call-to-action button and an animated genre filter. Using `useState`, the user can toggle between *All Genres*, *Thrash Metal* and *Heavy Metal* — the `FeaturedBands` child component receives the selected genre as a prop and renders only matching bands. Below the filter a photo gallery displays ten iconic metal performance shots in a responsive grid.
+
+---
+
+## 📥 Import / Export Data
+
+The `/import-export` page allows users to **export** the current bands stored in Firebase to a file, and **import** bands from a file back into Firebase. Three formats are supported:
+
+| Format | Export | Import | Example File |
+|--------|--------|--------|-------------|
+| JSON | ✅ | ✅ | [datos.json](public/datos.json) |
+| XML | ✅ | ✅ | [datos.xml](public/datos.xml) |
+| CSV | ✅ | ✅ | [datos.csv](public/datos.csv) |
+
+### Example import files
+
+You can download the example files to test the import functionality:
+
+- 📄 **JSON** — [datos.json](public/datos.json)
+- 📄 **XML** — [datos.xml](public/datos.xml)
+- 📄 **CSV** — [datos.csv](public/datos.csv)
+
+### How it works
+
+1. **Export**: Fetches all bands from Firebase Realtime Database and generates a downloadable file in the selected format (JSON, XML or CSV).
+2. **Import**: Opens a file picker, parses the selected file (JSON, XML or CSV), shows a preview, and saves the parsed bands into Firebase on confirmation.
+
+The import/export logic is implemented using the [`show-open-file-picker`](https://www.npmjs.com/package/show-open-file-picker) polyfill for the File System Access API and [`papaparse`](https://www.papaparse.com/) for CSV parsing, following the professor's example at [tcrurav/react-import-export-json-xml-csv](https://github.com/tcrurav/react-import-export-json-xml-csv).
+
+---
+
+## 🗂️ Firebase Services Architecture
+
+All Firebase access is **centralized** in the `src/services/` folder. Pages and components never access Firebase directly — they always go through the service layer:
+
+```
+src/
+├── firebase/
+│   └── firebase.js          # Firebase config & initialization
+├── services/
+│   ├── firebase-bands.js     # CRUD operations for bands (Firebase)
+│   ├── file-export.js        # Export to JSON / XML / CSV
+│   └── file-import.js        # Import from JSON / XML / CSV
+├── components/
+│   ├── ExpExamples/          # Export UI component (uses services/)
+│   └── ImpExamples/          # Import UI component (uses services/)
+└── pages/
+    ├── Bands/                # Uses firebase-bands service
+    └── ImportExport/         # Uses all services
+```
+
+| Service File | Functions | Used By |
+|---|---|---|
+| `firebase-bands.js` | `getBands()`, `addBand()`, `setAllBands()`, `deleteBand()` | Bands page, ExportExamples, ImportExamples |
+| `file-export.js` | `saveFileInFormat(format, data, fileName)` | ExportExamples |
+| `file-import.js` | `importFileToInternalJson()` | ImportExamples |
 
 ---
 
@@ -65,6 +123,9 @@ The home page greets the user with a full-width hero banner showcasing a live co
 | Leaflet + React Leaflet | Interactive map on the Contact page | [leafletjs.com](https://leafletjs.com) |
 | Font Awesome (CDN) | Social media icons in the Footer | [fontawesome.com](https://fontawesome.com) |
 | Google Fonts – Metal Mania | Decorative metal-style headings | [fonts.google.com](https://fonts.google.com/specimen/Metal+Mania) |
+| Firebase | Realtime Database for data persistence | [firebase.google.com](https://firebase.google.com) |
+| PapaParse | CSV parsing for import functionality | [papaparse.com](https://www.papaparse.com) |
+| show-open-file-picker | File System Access API polyfill | [npm](https://www.npmjs.com/package/show-open-file-picker) |
 
 ---
 
