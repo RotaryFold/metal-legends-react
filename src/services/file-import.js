@@ -1,5 +1,7 @@
 import { showOpenFilePicker } from "show-open-file-picker";
 import Papa from "papaparse";
+import * as XLSX from "xlsx";
+import YAML from "yaml";
 
 function xmlNodeToObject(node) {
   const children = Array.from(node.children);
@@ -59,17 +61,31 @@ function getExtension(fileName) {
   return fileName.split(".").pop()?.toLowerCase() || "";
 }
 
-function parseFileContent(extension, text) {
+async function parseFileContent(extension, file) {
+  if (["xlsx", "xls", "ods"].includes(extension)) {
+    const arrayBuffer = await file.arrayBuffer();
+    const workbook = XLSX.read(arrayBuffer, { type: "array" });
+    const firstSheetName = workbook.SheetNames[0];
+    const worksheet = workbook.Sheets[firstSheetName];
+    return XLSX.utils.sheet_to_json(worksheet);
+  }
+
+  const text = await file.text();
+
   switch (extension) {
     case "json":
       return JSON.parse(text);
-
     case "xml":
       return xmlToJson(text);
-
     case "csv":
       return csvToJson(text);
-
+    case "tsv":
+      const resultTsv = Papa.parse(text, { header: true, skipEmptyLines: true, delimiter: "\t" });
+      if (resultTsv.errors.length) throw new Error("TSV invalid");
+      return resultTsv.data;
+    case "yaml":
+    case "yml":
+      return YAML.parse(text);
     default:
       throw new Error(`Unsupported format: ${extension}`);
   }
@@ -86,16 +102,21 @@ export async function importFileToInternalJson() {
           "application/xml": [".xml"],
           "text/xml": [".xml"],
           "text/csv": [".csv"],
+          "text/tsv": [".tsv"],
+          "text/yaml": [".yaml", ".yml"],
+          "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": [".xlsx"],
+          "application/vnd.ms-excel": [".xls"],
+          "application/vnd.oasis.opendocument.spreadsheet": [".ods"]
         },
       },
     ],
   });
 
   const file = await fileHandle.getFile();
-  const text = await file.text();
   const extension = getExtension(file.name);
 
-  const data = parseFileContent(extension, text);
+  // We explicitly await the parsing since it reads the file buffer/text
+  const data = await parseFileContent(extension, file);
 
   return {
     fileName: file.name,

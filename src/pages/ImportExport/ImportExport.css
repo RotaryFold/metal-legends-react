@@ -88,3 +88,48 @@
   background: #ffa726;
   color: #111;
 }
+
+.ie-link--yaml {
+  border: 1px solid #ab47bc;
+  color: #ab47bc;
+}
+.ie-link--yaml:hover {
+  background: #ab47bc;
+  color: #111;
+}
+
+.ie-link--tsv {
+  border: 1px solid #ffca28;
+  color: #ffca28;
+}
+.ie-link--tsv:hover {
+  background: #ffca28;
+  color: #111;
+}
+
+.ie-link--xlsx {
+  border: 1px solid #26a69a;
+  color: #26a69a;
+}
+.ie-link--xlsx:hover {
+  background: #26a69a;
+  color: #111;
+}
+
+.ie-link--xls {
+  border: 1px solid #00897b;
+  color: #00897b;
+}
+.ie-link--xls:hover {
+  background: #00897b;
+  color: #111;
+}
+
+.ie-link--ods {
+  border: 1px solid #5c6bc0;
+  color: #5c6bc0;
+}
+.ie-link--ods:hover {
+  background: #5c6bc0;
+  color: #111;
+}

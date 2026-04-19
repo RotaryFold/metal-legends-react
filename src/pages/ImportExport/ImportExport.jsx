@@ -31,6 +31,21 @@ function ImportExport() {
             <a href="/datos.csv" download className="ie-link ie-link--csv">
               datos.csv
             </a>
+            <a href="/datos.yaml" download className="ie-link ie-link--yaml">
+              datos.yaml
+            </a>
+            <a href="/datos.tsv" download className="ie-link ie-link--tsv">
+              datos.tsv
+            </a>
+            <a href="/datos.xlsx" download className="ie-link ie-link--xlsx">
+              datos.xlsx
+            </a>
+            <a href="/datos.xls" download className="ie-link ie-link--xls">
+              datos.xls
+            </a>
+            <a href="/datos.ods" download className="ie-link ie-link--ods">
+              datos.ods
+            </a>
           </div>
         </div>
       </div>
