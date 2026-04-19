@@ -17,7 +17,7 @@ function ImportExport() {
         </div>
 
         <div className="ie-examples">
-          <h3 className="ie-examples-title">📁 Example Files</h3>
+          <h3 className="ie-examples-title">Example Files</h3>
           <p className="ie-examples-info">
             Download example files to test the import functionality:
           </p>
@@ -30,6 +30,24 @@ function ImportExport() {
             </a>
             <a href="/datos.csv" download className="ie-link ie-link--csv">
               datos.csv
+            </a>
+            <a href="/datos.yaml" download className="ie-link ie-link--yaml">
+              datos.yaml
+            </a>
+            <a href="/datos.html" download className="ie-link ie-link--html">
+              datos.html
+            </a>
+            <a href="/datos.tsv" download className="ie-link ie-link--tsv">
+              datos.tsv
+            </a>
+            <a href="/datos.xlsx" download className="ie-link ie-link--xlsx">
+              datos.xlsx
+            </a>
+            <a href="/datos.xls" download className="ie-link ie-link--xls">
+              datos.xls
+            </a>
+            <a href="/datos.ods" download className="ie-link ie-link--ods">
+              datos.ods
             </a>
           </div>
         </div>

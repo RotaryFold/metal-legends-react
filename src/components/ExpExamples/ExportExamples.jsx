@@ -46,6 +46,10 @@ function ExportExamples() {
     return [header, ...rows].join("\n");
   };
 
+  const getCleanBands = () => {
+    return bands.map(({ firebaseKey, ...rest }) => rest);
+  };
+
   if (loading) {
     return (
       <div className="export-section">
@@ -79,6 +83,42 @@ function ExportExamples() {
           onClick={() => saveFileInFormat("csv", buildCsv(), "datos.csv")}
         >
           Export CSV
+        </button>
+        <button
+          className="export-btn export-btn--yaml"
+          onClick={() => saveFileInFormat("yaml", getCleanBands(), "datos.yaml")}
+        >
+          Export YAML
+        </button>
+        <button
+          className="export-btn export-btn--html"
+          onClick={() => saveFileInFormat("html", getCleanBands(), "datos.html")}
+        >
+          Export HTML
+        </button>
+        <button
+          className="export-btn export-btn--tsv"
+          onClick={() => saveFileInFormat("tsv", getCleanBands(), "datos.tsv")}
+        >
+          Export TSV
+        </button>
+        <button
+          className="export-btn export-btn--xlsx"
+          onClick={() => saveFileInFormat("xlsx", getCleanBands(), "datos.xlsx")}
+        >
+          Export XLSX
+        </button>
+        <button
+          className="export-btn export-btn--xls"
+          onClick={() => saveFileInFormat("xls", getCleanBands(), "datos.xls")}
+        >
+          Export XLS
+        </button>
+        <button
+          className="export-btn export-btn--ods"
+          onClick={() => saveFileInFormat("ods", getCleanBands(), "datos.ods")}
+        >
+          Export ODS
         </button>
       </div>
     </div>

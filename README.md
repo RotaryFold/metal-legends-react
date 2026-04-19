@@ -69,6 +69,12 @@ The `/import-export` page allows users to **export** the current bands stored in
 | JSON | ✅ | ✅ | [datos.json](public/datos.json) |
 | XML | ✅ | ✅ | [datos.xml](public/datos.xml) |
 | CSV | ✅ | ✅ | [datos.csv](public/datos.csv) |
+| YAML | ✅ | ✅ | [datos.yaml](public/datos.yaml) |
+| HTML | ✅ | ✅ | [datos.html](public/datos.html) |
+| TSV | ✅ | ✅ | [datos.tsv](public/datos.tsv) |
+| XLSX | ✅ | ✅ | [datos.xlsx](public/datos.xlsx) |
+| XLS | ✅ | ✅ | [datos.xls](public/datos.xls) |
+| ODS | ✅ | ✅ | [datos.ods](public/datos.ods) |
 
 ### Example import files
 
@@ -77,6 +83,12 @@ You can download the example files to test the import functionality:
 - 📄 **JSON** — [datos.json](public/datos.json)
 - 📄 **XML** — [datos.xml](public/datos.xml)
 - 📄 **CSV** — [datos.csv](public/datos.csv)
+- 📄 **YAML** — [datos.yaml](public/datos.yaml)
+- 📄 **HTML** — [datos.html](public/datos.html)
+- 📄 **TSV** — [datos.tsv](public/datos.tsv)
+- 📄 **XLSX** — [datos.xlsx](public/datos.xlsx)
+- 📄 **XLS** — [datos.xls](public/datos.xls)
+- 📄 **ODS** — [datos.ods](public/datos.ods)
 
 ### How it works
 
