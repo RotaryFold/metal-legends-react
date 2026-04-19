@@ -1,0 +1,90 @@
+.import-export-section {
+  min-height: 70vh;
+}
+
+.ie-subtitle {
+  color: #aaa;
+  font-size: 1.05rem;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.ie-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+  .ie-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ie-examples {
+  background: #161616;
+  border: 1px solid rgba(183, 28, 28, 0.2);
+  border-radius: 12px;
+  padding: 28px;
+  text-align: center;
+}
+
+.ie-examples-title {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+}
+
+.ie-examples-info {
+  color: #aaa;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+.ie-examples-links {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ie-link {
+  display: inline-block;
+  padding: 10px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background 0.2s, color 0.2s, transform 0.15s;
+}
+
+.ie-link:hover {
+  transform: translateY(-2px);
+}
+
+.ie-link--json {
+  border: 1px solid #66bb6a;
+  color: #66bb6a;
+}
+.ie-link--json:hover {
+  background: #66bb6a;
+  color: #111;
+}
+
+.ie-link--xml {
+  border: 1px solid #42a5f5;
+  color: #42a5f5;
+}
+.ie-link--xml:hover {
+  background: #42a5f5;
+  color: #111;
+}
+
+.ie-link--csv {
+  border: 1px solid #ffa726;
+  color: #ffa726;
+}
+.ie-link--csv:hover {
+  background: #ffa726;
+  color: #111;
+}

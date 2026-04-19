@@ -1,0 +1,55 @@
+.export-section {
+  background: #161616;
+  border: 1px solid rgba(183, 28, 28, 0.2);
+  border-radius: 12px;
+  padding: 28px;
+}
+
+.export-title {
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+
+.export-info {
+  color: #aaa;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+.export-loading {
+  color: #888;
+  font-style: italic;
+}
+
+.export-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.export-btn {
+  padding: 10px 22px;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s, transform 0.15s;
+}
+
+.export-btn:hover {
+  background: var(--accent);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.export-btn--json { border-color: #66bb6a; color: #66bb6a; }
+.export-btn--json:hover { background: #66bb6a; color: #111; }
+
+.export-btn--xml { border-color: #42a5f5; color: #42a5f5; }
+.export-btn--xml:hover { background: #42a5f5; color: #111; }
+
+.export-btn--csv { border-color: #ffa726; color: #ffa726; }
+.export-btn--csv:hover { background: #ffa726; color: #111; }

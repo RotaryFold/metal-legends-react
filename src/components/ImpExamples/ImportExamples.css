@@ -1,0 +1,92 @@
+.import-section {
+  background: #161616;
+  border: 1px solid rgba(183, 28, 28, 0.2);
+  border-radius: 12px;
+  padding: 28px;
+}
+
+.import-title {
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+
+.import-info {
+  color: #aaa;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+.import-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.import-btn {
+  padding: 10px 22px;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s, transform 0.15s;
+}
+
+.import-btn:hover {
+  background: var(--accent);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.import-btn--save {
+  border-color: #66bb6a;
+  color: #66bb6a;
+}
+.import-btn--save:hover {
+  background: #66bb6a;
+  color: #111;
+}
+.import-btn--save:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.import-area {
+  margin-top: 8px;
+}
+
+.import-message {
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+}
+
+.import-message--error {
+  background: rgba(183, 28, 28, 0.15);
+  color: #ef5350;
+  border: 1px solid rgba(183, 28, 28, 0.3);
+}
+
+.import-message--success {
+  background: rgba(102, 187, 106, 0.1);
+  color: #66bb6a;
+  border: 1px solid rgba(102, 187, 106, 0.3);
+}
+
+.import-preview {
+  background: #0f0f0f;
+  color: #ccc;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  max-height: 300px;
+  overflow: auto;
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
