@@ -17,7 +17,7 @@ function ImportExport() {
         </div>
 
         <div className="ie-examples">
-          <h3 className="ie-examples-title">📁 Example Files</h3>
+          <h3 className="ie-examples-title">Example Files</h3>
           <p className="ie-examples-info">
             Download example files to test the import functionality:
           </p>
