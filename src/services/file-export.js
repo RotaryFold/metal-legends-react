@@ -36,6 +36,12 @@ export const saveFileInFormat = async (format, data, fileName = "data.json") => 
       acceptedType = { "text/yaml": [".yaml", ".yml"] };
       content = YAML.stringify(data);
       break;
+    case "html":
+      description = "HTML";
+      acceptedType = { "text/html": [".html", ".htm"] };
+      const wsHtml = XLSX.utils.json_to_sheet(data);
+      content = XLSX.utils.sheet_to_html(wsHtml);
+      break;
     case "tsv":
       description = "TSV";
       acceptedType = { "text/tsv": [".tsv"] };

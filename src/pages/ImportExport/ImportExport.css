@@ -98,6 +98,15 @@
   color: #111;
 }
 
+.ie-link--html {
+  border: 1px solid #ef5350;
+  color: #ef5350;
+}
+.ie-link--html:hover {
+  background: #ef5350;
+  color: #111;
+}
+
 .ie-link--tsv {
   border: 1px solid #ffca28;
   color: #ffca28;

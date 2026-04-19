@@ -70,6 +70,7 @@ The `/import-export` page allows users to **export** the current bands stored in
 | XML | ✅ | ✅ | [datos.xml](public/datos.xml) |
 | CSV | ✅ | ✅ | [datos.csv](public/datos.csv) |
 | YAML | ✅ | ✅ | [datos.yaml](public/datos.yaml) |
+| HTML | ✅ | ✅ | [datos.html](public/datos.html) |
 | TSV | ✅ | ✅ | [datos.tsv](public/datos.tsv) |
 | XLSX | ✅ | ✅ | [datos.xlsx](public/datos.xlsx) |
 | XLS | ✅ | ✅ | [datos.xls](public/datos.xls) |
@@ -83,6 +84,7 @@ You can download the example files to test the import functionality:
 - 📄 **XML** — [datos.xml](public/datos.xml)
 - 📄 **CSV** — [datos.csv](public/datos.csv)
 - 📄 **YAML** — [datos.yaml](public/datos.yaml)
+- 📄 **HTML** — [datos.html](public/datos.html)
 - 📄 **TSV** — [datos.tsv](public/datos.tsv)
 - 📄 **XLSX** — [datos.xlsx](public/datos.xlsx)
 - 📄 **XLS** — [datos.xls](public/datos.xls)

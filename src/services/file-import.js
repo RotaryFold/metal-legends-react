@@ -62,7 +62,7 @@ function getExtension(fileName) {
 }
 
 async function parseFileContent(extension, file) {
-  if (["xlsx", "xls", "ods"].includes(extension)) {
+  if (["xlsx", "xls", "ods", "html", "htm"].includes(extension)) {
     const arrayBuffer = await file.arrayBuffer();
     const workbook = XLSX.read(arrayBuffer, { type: "array" });
     const firstSheetName = workbook.SheetNames[0];
@@ -104,6 +104,7 @@ export async function importFileToInternalJson() {
           "text/csv": [".csv"],
           "text/tsv": [".tsv"],
           "text/yaml": [".yaml", ".yml"],
+          "text/html": [".html", ".htm"],
           "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": [".xlsx"],
           "application/vnd.ms-excel": [".xls"],
           "application/vnd.oasis.opendocument.spreadsheet": [".ods"]

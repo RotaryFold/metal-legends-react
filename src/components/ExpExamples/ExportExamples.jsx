@@ -91,6 +91,12 @@ function ExportExamples() {
           Export YAML
         </button>
         <button
+          className="export-btn export-btn--html"
+          onClick={() => saveFileInFormat("html", getCleanBands(), "datos.html")}
+        >
+          Export HTML
+        </button>
+        <button
           className="export-btn export-btn--tsv"
           onClick={() => saveFileInFormat("tsv", getCleanBands(), "datos.tsv")}
         >

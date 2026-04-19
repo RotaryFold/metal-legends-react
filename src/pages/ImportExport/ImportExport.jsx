@@ -34,6 +34,9 @@ function ImportExport() {
             <a href="/datos.yaml" download className="ie-link ie-link--yaml">
               datos.yaml
             </a>
+            <a href="/datos.html" download className="ie-link ie-link--html">
+              datos.html
+            </a>
             <a href="/datos.tsv" download className="ie-link ie-link--tsv">
               datos.tsv
             </a>
